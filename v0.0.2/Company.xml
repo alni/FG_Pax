@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+
+<!--
+command interface /autopilot/route-manager/input:
+
+  @clear             ... clear route
+  @pop               ... remove first entry
+  @delete3           ... delete 4th entry
+  @insert2:ksfo@900  ... insert "ksfo@900" as 3rd entry
+  ksfo@900           ... append "ksfo@900"
+
+-->
+
+<PropertyList>
+    <name>fg-pax</name>
+    <layout>vbox</layout>
+    <resizable>true</resizable>
+
+    <nasal>
+        <open>
+   
+        </open>
+
+        <close>
+
+        </close>
+    </nasal>
+
+    <text>
+        <label>FG Pax</label>
+    </text>
+
+    <!--<empty><stretch>1</stretch></empty>-->
+
+    <group>
+        <layout>hbox</layout>
+        <!--<empty><stretch>1</stretch></empty>-->
+        <group>
+            <layout>vbox</layout>
+            <text>
+                <label>AA Airways</label>
+            </text>
+            <group>
+                <layout>table</layout>
+                <text>
+                    <row>0</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Captial:</label>
+                </text>
+                <text>
+                    <row>0</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>$100 000 000 000</label>
+                </text>
+                <text>
+                    <row>1</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Current depature:</label>
+                </text>
+                <text>
+                    <row>1</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>KSFO</label>
+                </text>
+                <text>
+                    <row>2</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Current destination:</label>
+                </text>
+                <text>
+                    <row>2</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>KLAX</label>
+                </text>
+                <text>
+                    <row>3</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>ETA:</label>
+                </text>
+                <text>
+                    <row>3</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>22:22:22</label>
+                </text>
+                <text>
+                    <row>4</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Distance left:</label>
+                </text>
+                <text>
+                    <row>4</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>940.0 nm</label>
+                </text>
+            </group>
+        </group>
+        <group>
+            <layout>vbox</layout>
+            <group>
+                <layout>table</layout>
+                <text>
+                    <row>0</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Passengers:</label>
+                </text>
+                <text>
+                    <row>0</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>240</label>
+                </text>
+                <text>
+                    <row>1</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Cargo:</label>
+                </text>
+                <text>
+                    <row>1</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>10582 lbs</label>
+                </text>
+                <text>
+                    <row>2</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Total weight:</label>
+                </text>
+                <text>
+                    <row>2</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>53062 lbs</label>
+                </text>
+                <text>
+                    <row>3</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Time in air:</label>
+                </text>
+                <text>
+                    <row>3</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>00:45:45</label>
+                </text>
+                <text>
+                    <row>4</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Estimated income:</label>
+                </text>
+                <text>
+                    <row>4</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>$1 018 348</label>
+                </text>
+                <text>
+                    <row>4</row>
+                    <col>0</col>
+                    <halign>left</halign>
+                    <label>Are we there yet?</label>
+                </text>
+                <text>
+                    <row>4</row>
+                    <col>1</col>
+                    <halign>left</halign>
+                    <label>No (wrong airport)</label>
+                </text>
+            </group>
+        </group>
+    </group>
+</PropertyList>
