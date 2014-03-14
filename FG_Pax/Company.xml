@@ -169,13 +169,13 @@ command interface /autopilot/route-manager/input:
                     <label>$1 018 348</label>
                 </text>
                 <text>
-                    <row>4</row>
+                    <row>5</row>
                     <col>0</col>
                     <halign>left</halign>
                     <label>Are we there yet?</label>
                 </text>
                 <text>
-                    <row>4</row>
+                    <row>5</row>
                     <col>1</col>
                     <halign>left</halign>
                     <label>No (wrong airport)</label>
