@@ -1,3 +1,5 @@
+# DEPRECATED AS OF 27 MARCH 2013	
+
 var money = 0;
 var currentRoute = nil;
 var route_done = 0;
