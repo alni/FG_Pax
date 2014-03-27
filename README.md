@@ -1,6 +1,6 @@
-Company.xml data/gui/dialogs/
-FG_Pax_init.nas data/Nasal
+	Company.xml data/gui/dialogs/
+	FG_Pax_init.nas data/Nasal
 
-TODO:
+TODO
 
-* Company.nas to be merged with Company.xml
+- Company.nas to be merged with Company.xml
