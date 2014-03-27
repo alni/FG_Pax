@@ -1,3 +1,5 @@
+# Goes into $FG_ROOT/Nasal/
+
 setprop("/sim/menubar/default/menu[200]/name", "fg-pax");
 setprop("/sim/menubar/default/menu[200]/enabled", "true");
 setprop("/sim/menubar/default/menu[200]/label", "FG Pax");

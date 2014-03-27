@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 
 <!--
+    Goes into $FG_ROOT/gui/dialogs/
+
+
 command interface /autopilot/route-manager/input:
 
   @clear             ... clear route
@@ -182,5 +185,26 @@ command interface /autopilot/route-manager/input:
                 </text>
             </group>
         </group>
+    </group>
+    <group>
+        <layout>table</layout>
+        <button>
+            <row>0</row>
+            <col>0</col>
+            <halign>center</halign>
+            <label>START NEW ROUTE</label>
+        </button>
+        <button>
+            <row>0</row>
+            <col>1</col>
+            <halign>center</halign>
+            <label>EMERGENCY LANDING</label>
+        </button>
+        <button>
+            <row>0</row>
+            <col>2</col>
+            <halign>center</halign>
+            <label>CANCEL ROUTE</label>
+        </button>
     </group>
 </PropertyList>
