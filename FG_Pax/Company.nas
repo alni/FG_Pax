@@ -37,8 +37,8 @@ Company.cancelRoute = func {
 };
 
 Company.eventFly = func {
-	print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
-	print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
+	# print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
+	# print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
 	Company.earned();
 };
 

@@ -58,10 +58,10 @@ command interface /autopilot/route-manager/input:
             };
 
             Company.eventFly = func {
-                print("Time in air: ", getprop("/autopilot/route-manager/flight-time"), "\n");
-                print("Distance left: ", getprop("/autopilot/route-manager/distance-remaining-nm"), "\n");
-                Company.earned();
-            };
+				# print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
+				# print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
+				Company.earned();
+			};
 
             Company.earned = func {
                 var dist_rem = getprop("/autopilot/route-manager/distance-remaining-nm");
