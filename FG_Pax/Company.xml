@@ -36,12 +36,12 @@ command interface /autopilot/route-manager/input:
 
             Company.startNewRoute = func {
                 print("route_started = ", route_started, "\n");
-                print("/autopilot/route-manager/active = ", getProp("/autopilot/route-manager/active"), "\n");
-                if (!route_started and getProp("/autopilot/route-manager/active")) {
-                    print("Distance to end: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
+                print("/autopilot/route-manager/active = ", getprop("/autopilot/route-manager/active"), "\n");
+                if (!route_started and getprop("/autopilot/route-manager/active")) {
+                    print("Distance to end: ", getprop("/autopilot/route-manager/distance-remaining-nm"), "\n");
                         
                     route_started = 1;
-                    listener_distance = _setListener("/autopilot/route-manager/distance-remaining-nm", Company.eventFly);
+                    listener_distance = _setlistener("/autopilot/route-manager/distance-remaining-nm", Company.eventFly);
                 }
             };
 
@@ -58,16 +58,16 @@ command interface /autopilot/route-manager/input:
             };
 
             Company.eventFly = func {
-                print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
-                print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
+                print("Time in air: ", getprop("/autopilot/route-manager/flight-time"), "\n");
+                print("Distance left: ", getprop("/autopilot/route-manager/distance-remaining-nm"), "\n");
                 Company.earned();
             };
 
             Company.earned = func {
-                var dist_rem = getProp("/autopilot/route-manager/distance-remaining-nm");
-                var airborne = getProp("/autopilot/route-manager/airborne");
+                var dist_rem = getprop("/autopilot/route-manager/distance-remaining-nm");
+                var airborne = getprop("/autopilot/route-manager/airborne");
                 if (!route_done and dist_rem <= 1 and !airborne and route_started) {
-                    var time_flown = getProp("/autopilot/route-manager/flight-time");
+                    var time_flown = getprop("/autopilot/route-manager/flight-time");
                     var earned = (time_flown / 60.0) * 250;
 
                     money = money + earned;
