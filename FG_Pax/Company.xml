@@ -29,9 +29,30 @@ command interface /autopilot/route-manager/input:
         </close>
     </nasal>
 
-    <text>
-        <label>FG Pax</label>
-    </text>
+    <group>
+        <layout>hbox</layout>
+        <empty><stretch>1</stretch></empty>
+
+        <text>
+            <label>FG Pax</label>
+        </text>
+
+        <empty><stretch>1</stretch></empty>
+
+        <button>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <legend></legend>
+            <default>1</default>
+            <keynum>27</keynum>
+            <border>2</border>
+
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+    <hrule/>
 
     <!--<empty><stretch>1</stretch></empty>-->
 
@@ -192,19 +213,19 @@ command interface /autopilot/route-manager/input:
             <row>0</row>
             <col>0</col>
             <halign>center</halign>
-            <label>START NEW ROUTE</label>
+            <legend>START NEW ROUTE</legend>
         </button>
         <button>
             <row>0</row>
             <col>1</col>
             <halign>center</halign>
-            <label>EMERGENCY LANDING</label>
+            <legend>EMERGENCY LANDING</legend>
         </button>
         <button>
             <row>0</row>
             <col>2</col>
             <halign>center</halign>
-            <label>CANCEL ROUTE</label>
+            <legend>CANCEL ROUTE</legend>
         </button>
     </group>
 </PropertyList>
