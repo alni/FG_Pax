@@ -64,10 +64,10 @@ command interface /autopilot/route-manager/input:
 			};
 
             Company.earned = func {
-                # var dist_rem = getprop("/autopilot/route-manager/distance-remaining-nm");
+                var dist_rem = getprop("/autopilot/route-manager/distance-remaining-nm");
                 var curr_wp = getprop("/autopilot/route-manager/current-wp");
                 var airborne = getprop("/autopilot/route-manager/airborne");
-                if (!route_done and curr_wp == -1 and !airborne and route_started) {
+                if (!route_done and dist_rem <= 3 and !airborne and route_started) {
                     var time_flown = getprop("/autopilot/route-manager/flight-time");
                     var earned = (time_flown / 60.0) * 250;
 
@@ -76,6 +76,7 @@ command interface /autopilot/route-manager/input:
                     print("Money: $", money, "\n");
 
                     route_done = 1;
+					Company.cancelRoute();
                 }
             };
         ]]>
