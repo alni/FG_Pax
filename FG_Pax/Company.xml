@@ -146,6 +146,7 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>KSFO</label>
+                    <live>true</live>
                     <property>/autopilot/route-manager/departure/name</property>
                 </text>
                 <text>
@@ -159,6 +160,7 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>KLAX</label>
+                    <live>true</live>
                     <property>/autopilot/route-manager/destination/name</property>
                 </text>
                 <text>
@@ -166,6 +168,8 @@ command interface /autopilot/route-manager/input:
                     <col>0</col>
                     <halign>left</halign>
                     <label>ETA:</label>
+                    <live>true</live>
+                    <property>/autopilot/route-manager/destination/eta</property>
                 </text>
                 <text>
                     <row>3</row>
@@ -184,6 +188,7 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>940.0 nm</label>
+                    <live>true</live>
                     <property>/autopilot/route-manager/distance-remaining-nm</property>
                 </text>
             </group>
