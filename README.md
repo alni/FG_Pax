@@ -21,4 +21,5 @@ v0.0.2
 - Add property **/fg-pax/money**
 - Add property **/fg-pax/route-done**
 - Add property **/fg-pax/route-started**
+- Add property **/fg-pax/eta**
 - Migrate the variables to properties (see above)
