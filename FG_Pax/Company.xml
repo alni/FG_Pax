@@ -35,7 +35,7 @@ command interface /autopilot/route-manager/input:
             };
 
             Company.startNewRoute = func {
-                print("route_started = ", route_started, "\n");
+                print("route_started = ", getprop("/fg-pax/route-started"), "\n");
                 print("/autopilot/route-manager/active = ", getprop("/autopilot/route-manager/active"), "\n");
                 if (!getprop("/fg-pax/route-started") and getprop("/autopilot/route-manager/active")) {
                     # Reset Flight Time to 0 on new route
@@ -49,6 +49,7 @@ command interface /autopilot/route-manager/input:
                     # route_started = 1;
                     listener_distance = _setlistener("/autopilot/route-manager/distance-remaining-nm", Company.eventFly);
                 }
+                print("route_started = ", getprop("/fg-pax/route-started"), "\n");
             };
 
             Company.cancelRoute = func {
@@ -154,6 +155,9 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>$100 000 000 000</label>
+                    <format>%.2f nm</format>
+                    <live>true</live>
+                    <property>/autopilot/route-manager/distance-remaining-nm</property>
                 </text>
                 <text>
                     <row>1</row>
