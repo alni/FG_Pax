@@ -1,58 +1,102 @@
-# DEPRECATED AS OF 27 MARCH 2013	
-
-var money = 0;
+# var money = 0;
 var currentRoute = nil;
-var route_done = 0;
-var route_started = 0;
+# var route_done = 0;
+# var route_started = 0;
 var listener_distance = nil;
 var num_listeners = nil;
 
 Company = {};
 
 Company.init = func {
-	print("## INIT FG_Pax ##", "\n");
+    print("## INIT FG_Pax ##", "\n");
 };
 
 Company.startNewRoute = func {
-	print("route_started = ", route_started, "\n");
-	print("/autopilot/route-manager/active = ", getProp("/autopilot/route-manager/active"), "\n");
-	if (!route_started and getProp("/autopilot/route-manager/active")) {
-		print("Distance to end: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
-			
-		route_started = 1;
-		listener_distance = _setListener("/autopilot/route-manager/distance-remaining-nm", Company.eventFly);
-	}
+    print("route_started = ", getprop("/fg-pax/route-started"), "\n");
+    print("/autopilot/route-manager/active = ", getprop("/autopilot/route-manager/active"), "\n");
+    if (!getprop("/fg-pax/route-started") and getprop("/autopilot/route-manager/active")) {
+        # Reset Flight Time to 0 on new route
+        # as it does not reset while airborne
+        # (keeps ticking even when Route Manager is not active)
+        setprop("/autopilot/route-manager/flight-time", 0);
+
+        print("Distance to end: ", getprop("/autopilot/route-manager/distance-remaining-nm"), "\n");
+        
+        setprop("/fg-pax/route-started", 1);
+        # route_started = 1;
+        listener_distance = _setlistener("/autopilot/route-manager/distance-remaining-nm", Company.eventFly);
+    }
+    print("route_started = ", getprop("/fg-pax/route-started"), "\n");
 };
 
 Company.cancelRoute = func {
-	route_started = 0;
-	currentRoute = nil;
-	route_done = 0;
-	num_listeners = removelistener(listener_distance);
-	if (!num_listeners) {
-		print("Unable to remove listener_distance", "\n");
-	} else {
-		print("Listeners remaining: ", num_listener, "\n");
-	}
+    setprop("/fg-pax/route-started", 0);
+    # route_started = 0;
+    currentRoute = nil;
+    setprop("/fg-pax/route-done", 0);
+    # route_done = 0;
+    num_listeners = removelistener(listener_distance);
+    if (num_listeners != nil) {
+        if (!num_listeners) {
+            print("Unable to remove listener_distance", "\n");
+        } else {
+            print("Listeners remaining: ", num_listeners, "\n");
+        }
+    }
 };
 
 Company.eventFly = func {
+    var ete = getprop("/autopilot/route-manager/ete");
+    var h = ete / 3600;
+    var m = (h - int(h)) * 60;
+    var s = (m - int(m)) * 60;
+
+    h = int(h);
+    m = int(m);
+    s = int(s);
+
+
+    var ete_time = "";
+    if (h < 10) {
+        h = "0" ~ h;
+    }
+    if (m < 10) {
+        m = "0" ~ m;
+    }
+    if (s < 10) {
+        s = "0" ~ s;
+    }
+    ete_time = h ~ ":" ~ m ~ ":" ~ s;
+    setprop("/fg-pax/eta", ete_time);
+
+
 	# print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
 	# print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
 	Company.earned();
 };
 
 Company.earned = func {
-	var dist_rem = getProp("/autopilot/route-manager/distance-remaining-nm");
-	var airborne = getProp("/autopilot/route-manager/airborne");
-	if (!route_done and dist_rem <= 1 and !airborne and route_started) {
-		var time_flown = getProp("/autopilot/route-manager/flight-time");
-		var earned = (time_flown / 60.0) * 250;
+    var route_done = getprop("/fg-pax/route-done");
+    var route_started = getprop("/fg-pax/route-started");
+    var money = getprop("/fg-pax/money");
+    if (!money) {
+        money = 0;
+    }
 
-		money = money + earned;
-		print("Earn on this route: $", earned, "\n");
-		print("Money: $", money, "\n");
+    var dist_rem = getprop("/autopilot/route-manager/distance-remaining-nm");
+    var curr_wp = getprop("/autopilot/route-manager/current-wp");
+    var airborne = getprop("/autopilot/route-manager/airborne");
+    if (!route_done and dist_rem <= 3 and route_started) {
+        var time_flown = getprop("/autopilot/route-manager/flight-time");
+        var earned = (time_flown / 60.0) * 250;
 
-		route_done = 1;
-	}
+        money = money + earned;
+        setprop("/fg-pax/money", money);
+        print("Earn on this route: $", earned, "\n");
+        print("Money: $", money, "\n");
+
+        setprop("/fg-pax/route-done", 1);
+        # route_done = 1;
+		Company.cancelRoute();
+    }
 };
