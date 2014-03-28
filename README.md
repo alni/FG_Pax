@@ -5,11 +5,15 @@
 TODO
 
 v0.0.2
-- Company.nas to be merged with Company.xml
+- ~~Company.nas to be merged with Company.xml~~
 - Capital Text Dynamic
-- Current departure Dynamic
-- Current destination Dynamic
+- ~~Current departure Dynamic~~ 
+- ~~Current destination Dynamic~~
 - ETA Dynamic
-- Distance left Dynamic
+- ~~Distance left Dynamic~~
 - Time in air Dynamic
 - Estimated income Dynamic
+- Deactivate **Start New Route** button when route started
+- Deactivate **Cancel Route** button when no route started
+- Activate **Start New Route** button when route finished
+- Activate **Cancel Route** button when route started
