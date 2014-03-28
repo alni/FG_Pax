@@ -2,6 +2,7 @@
 	FG_Pax_init.nas data/Nasal
 
 	Company.nas is used for easy refactoring and code writing (syntax highlighting), and code is transfered to Company.xml
+
 TODO
 
 v0.0.2
@@ -17,3 +18,7 @@ v0.0.2
 - Deactivate **Cancel Route** button when no route started
 - Activate **Start New Route** button when route finished
 - Activate **Cancel Route** button when route started
+- Add property **/fg-pax/money**
+- Add property **/fg-pax/route-done**
+- Add property **/fg-pax/route-started**
+- Migrate the variables to properties (see above)
