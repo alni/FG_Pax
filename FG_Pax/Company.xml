@@ -83,6 +83,10 @@ command interface /autopilot/route-manager/input:
                 }
                 s = ete - (m * 60) - (h * 60 * 60);
 
+                h = int(h);
+                m = int(m);
+                s = int(m);
+
 
                 var ete_time = "";
                 if (h < 10) {
