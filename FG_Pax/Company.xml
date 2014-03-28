@@ -70,14 +70,29 @@ command interface /autopilot/route-manager/input:
 
             Company.eventFly = func {
                 var ete = getprop("/autopilot/route-manager/ete");
-                var min = (ete / 60) ~ "";
-                var sec = (ete % 60) ~ "";
-                var ete_time = "";
-                if (min < 10) {
-                    min = "0" ~ min;
+                var h = 0;
+                var m = 0;
+                var s = 0;
+
+                if (ete > 60) {
+                    m = ete / 60;
+                    h = 0;
                 }
-                if (sec < 10) {
-                    sec = "0" ~ sec;
+                if (m > 60) {
+                    h = m / 60;
+                }
+                s = ete - (m * 60) - (h * 60 * 60);
+
+
+                var ete_time = "";
+                if (h < 10) {
+                    h = "0" ~ h;
+                }
+                if (m < 10) {
+                    m = "0" ~ m;
+                }
+                if (s < 10) {
+                    s = "0" ~ s;
                 }
                 ete_time = min ~ ":" ~ sec;
                 setprop("/fg-pax/eta", ete_time);
