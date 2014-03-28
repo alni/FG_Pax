@@ -227,7 +227,7 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>22:22:22</label>
-                    <format>%.0f seconds</format>
+                    <format>%s</format>
                     <live>true</live>
                     <property>/fg-pax/eta</property>
                 </text>
