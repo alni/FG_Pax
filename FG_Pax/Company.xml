@@ -94,7 +94,7 @@ command interface /autopilot/route-manager/input:
                 if (s < 10) {
                     s = "0" ~ s;
                 }
-                ete_time = min ~ ":" ~ sec;
+                ete_time = h ~ ":" ~ m ~ ":" ~ s;
                 setprop("/fg-pax/eta", ete_time);
 
 
