@@ -69,6 +69,20 @@ command interface /autopilot/route-manager/input:
             };
 
             Company.eventFly = func {
+                var ete = getprop("/autopilot/route-manager/ete");
+                var min = ete / 60;
+                var sec = ete % 60;
+                var ete_time = "";
+                if (min < 10) {
+                    min = "0" ~ min;
+                }
+                if (sec < 10) {
+                    sec = "0" ~ sec;
+                }
+                ete_time = min ~ ":" ~ sec;
+                setprop("/fg-pax/eta", ete_time);
+
+
 				# print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
 				# print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
 				Company.earned();
@@ -200,7 +214,7 @@ command interface /autopilot/route-manager/input:
                     <label>22:22:22</label>
                     <format>%.0f seconds</format>
                     <live>true</live>
-                    <property>/autopilot/route-manager/ete</property>
+                    <property>/fg-pax/eta</property>
                 </text>
                 <text>
                     <row>4</row>
