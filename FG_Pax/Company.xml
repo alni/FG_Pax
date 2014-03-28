@@ -70,18 +70,18 @@ command interface /autopilot/route-manager/input:
 
             Company.eventFly = func {
                 var ete = getprop("/autopilot/route-manager/ete");
-                var h = 0;
-                var m = 0;
-                var s = 0;
+                var h = ete / 3600;
+                var m = (h - int(m)) * 60;
+                var s = (m - int(m)) * 60;
 
-                if (ete > 60) {
-                    m = ete / 60;
-                    h = 0;
-                }
-                if (m > 60) {
-                    h = m / 60;
-                }
-                s = ete - (m * 60) - (h * 60 * 60);
+                # if (ete > 60) {
+                #    m = ete / 60;
+                #    h = 0;
+                # }
+                # if (m > 60) {
+                #    h = m / 60;
+                # }
+                # s = ete - (m * 60) - (h * 60 * 60);
 
                 h = int(h);
                 m = int(m);
