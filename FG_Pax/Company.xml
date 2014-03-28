@@ -70,8 +70,8 @@ command interface /autopilot/route-manager/input:
 
             Company.eventFly = func {
                 var ete = getprop("/autopilot/route-manager/ete");
-                var min = ete / 60;
-                var sec = ete % 60;
+                var min = (ete / 60) ~ "";
+                var sec = (ete % 60) ~ "";
                 var ete_time = "";
                 if (min < 10) {
                     min = "0" ~ min;
