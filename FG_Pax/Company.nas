@@ -47,27 +47,31 @@ Company.cancelRoute = func {
 
 Company.eventFly = func {
     var ete = getprop("/autopilot/route-manager/ete");
-    var h = ete / 3600;
-    var m = (h - int(h)) * 60;
-    var s = (m - int(m)) * 60;
+    # var h = ete / 3600;
+    # var m = (h - int(h)) * 60;
+    # var s = (m - int(m)) * 60;
 
-    h = int(h);
-    m = int(m);
-    s = int(s);
+    # h = int(h);
+    # m = int(m);
+    # s = int(s);
 
 
-    var ete_time = "";
-    if (h < 10) {
-        h = "0" ~ h;
-    }
-    if (m < 10) {
-        m = "0" ~ m;
-    }
-    if (s < 10) {
-        s = "0" ~ s;
-    }
-    ete_time = h ~ ":" ~ m ~ ":" ~ s;
+    var ete_time = Company.formatTime(ete);
+    # if (h < 10) {
+    #    h = "0" ~ h;
+    # }
+    # if (m < 10) {
+    #    m = "0" ~ m;
+    # }
+    # if (s < 10) {
+    #    s = "0" ~ s;
+    # }
+    # ete_time = h ~ ":" ~ m ~ ":" ~ s;
     setprop("/fg-pax/eta", ete_time);
+
+    var time_flown = getprop("/autopilot/route-manager/flight-time");
+    var time_in_air = Company.formatTime(time_flown);
+    setprop("/fg-pax/time-in-air", time_in_air);
 
 
 	# print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
@@ -99,4 +103,28 @@ Company.earned = func {
         # route_done = 1;
 		Company.cancelRoute();
     }
+};
+
+Company.formatTime = func(arg0) {
+    var h = arg0 / 3600;
+    var m = (h - int(h)) * 60;
+    var s = (m - int(m)) * 60;
+
+    h = int(h);
+    m = int(m);
+    s = int(s);
+
+
+    var time = "";
+    if (h < 10) {
+        h = "0" ~ h;
+    }
+    if (m < 10) {
+        m = "0" ~ m;
+    }
+    if (s < 10) {
+        s = "0" ~ s;
+    }
+    time = h ~ ":" ~ m ~ ":" ~ s;
+    return time;
 };

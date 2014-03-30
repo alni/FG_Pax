@@ -193,6 +193,9 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>00:45:45</label>
+                    <format>%s</format>
+                    <live>true</live>
+                    <property>/fg-pax/time-in-air</property>
                 </text>
                 <text>
                     <row>4</row>

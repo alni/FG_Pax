@@ -13,7 +13,7 @@ v0.0.2
 - ~~Current destination Dynamic~~
 - ~~ETA Dynamic~~
 - ~~Distance left Dynamic~~
-- Time in air Dynamic
+- ~~Time in air Dynamic~~
 - Estimated income Dynamic
 - Deactivate **Start New Route** button when route started
 - Deactivate **Cancel Route** button when no route started
