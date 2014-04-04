@@ -231,6 +231,9 @@ command interface /autopilot/route-manager/input:
             <col>0</col>
             <halign>center</halign>
             <legend>START NEW ROUTE</legend>
+            <enable>
+                <not><property>/fg-pax/route-started</property></not>
+            </enable>
             <binding>
                 <command>nasal</command>
                 <script>Company.startNewRoute()</script>
@@ -247,6 +250,9 @@ command interface /autopilot/route-manager/input:
             <col>2</col>
             <halign>center</halign>
             <legend>CANCEL ROUTE</legend>
+            <enable>
+                <property>/fg-pax/route-started</property>
+            </enable>
             <binding>
                 <command>nasal</command>
                 <script>Company.cancelRoute()</script>

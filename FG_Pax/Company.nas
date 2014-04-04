@@ -105,6 +105,11 @@ Company.earned = func {
     }
 };
 
+Company.save = func {
+    var filename = getprop("/sim/fg-home") ~ "/Export/FG_Pax_Save.xml";
+    io.write_properties( path: filename, prop: "/fg-pax" );
+};
+
 Company.formatTime = func(arg0) {
     var h = arg0 / 3600;
     var m = (h - int(h)) * 60;
