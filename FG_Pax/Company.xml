@@ -208,6 +208,9 @@ command interface /autopilot/route-manager/input:
                     <col>1</col>
                     <halign>left</halign>
                     <label>$1 018 348</label>
+                    <format>$%.2f</format>
+                    <live>true</live>
+                    <property>/fg-pax/estimated-income</property>
                 </text>
                 <text>
                     <row>5</row>

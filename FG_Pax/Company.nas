@@ -76,6 +76,8 @@ Company.eventFly = func {
 
 	# print("Time in air: ", getProp("/autopilot/route-manager/flight-time"), "\n");
 	# print("Distance left: ", getProp("/autopilot/route-manager/distance-remaining-nm"), "\n");
+
+    Company.estimatedIncome();
 	Company.earned();
 };
 
@@ -132,4 +134,12 @@ Company.formatTime = func(arg0) {
     }
     time = h ~ ":" ~ m ~ ":" ~ s;
     return time;
+};
+
+Company.estimatedIncome = func {
+    var time_flown = getprop("/autopilot/route-manager/flight-time");
+    var ete = getprop("/autopilot/route-manager/ete");
+    var estimatedIncome = ((time_flown + ete) / 60.0) * 250;
+
+    setprop("/fg-pax/estimated-income", estimatedIncome);
 };
