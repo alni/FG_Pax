@@ -8,7 +8,6 @@ TODO
 
 v0.0.2
 - Estimated income Dynamic
-- ~~Company.nas to be merged with Company.xml~~
 - ~~Capital Text Dynamic~~
 - ~~Current departure Dynamic~~ 
 - ~~Current destination Dynamic~~
