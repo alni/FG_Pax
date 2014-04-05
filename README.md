@@ -7,6 +7,7 @@
 TODO
 
 v0.0.2
+- Estimated income Dynamic
 - ~~Company.nas to be merged with Company.xml~~
 - ~~Capital Text Dynamic~~
 - ~~Current departure Dynamic~~ 
@@ -14,13 +15,15 @@ v0.0.2
 - ~~ETA Dynamic~~
 - ~~Distance left Dynamic~~
 - ~~Time in air Dynamic~~
-- Estimated income Dynamic
-- Deactivate **Start New Route** button when route started
-- Deactivate **Cancel Route** button when no route started
-- Activate **Start New Route** button when route finished
-- Activate **Cancel Route** button when route started
+- ~~Deactivate **Start New Route** button when route started~~
+- ~~Deactivate **Cancel Route** button when no route started~~
+- ~~Activate **Start New Route** button when route finished~~
+- ~~Activate **Cancel Route** button when route started~~
 - ~~Add property **/fg-pax/money**~~
 - ~~Add property **/fg-pax/route-done**~~
 - ~~Add property **/fg-pax/route-started**~~
 - ~~Add property **/fg-pax/eta**~~
-- Migrate the variables to properties (see above)
+- ~~Migrate the variables to properties (see above)~~
+
+v0.0.3
+- Income calculation based on route distance (not distance flown)
