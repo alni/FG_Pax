@@ -24,6 +24,7 @@ v0.0.2
 - ~~Add property **/fg-pax/route-started**~~
 - ~~Add property **/fg-pax/eta**~~
 - ~~Migrate the variables to properties (see above)~~
+- Add property **/fg-pax/estimated-income**
 
 v0.0.3
-- Income calculation based on route distance (not distance flown)
+- Income calculation based on route distance (not distance flown or time flown)
