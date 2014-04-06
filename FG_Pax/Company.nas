@@ -93,9 +93,7 @@ Company.earned = func {
     var curr_wp = getprop("/autopilot/route-manager/current-wp");
     var airborne = getprop("/autopilot/route-manager/airborne");
     if (!route_done and dist_rem <= 3 and route_started) {
-        var time_flown = getprop("/autopilot/route-manager/flight-time");
-        var earned = (time_flown / 60.0) * 250;
-
+        var earned = Company.calculateIncome();
         money = money + earned;
         setprop("/fg-pax/money", money);
         print("Earn on this route: $", earned, "\n");
@@ -134,6 +132,19 @@ Company.formatTime = func(arg0) {
     }
     time = h ~ ":" ~ m ~ ":" ~ s;
     return time;
+};
+
+Company.calculateIncome = func {
+    var total_distance = getprop("/autopilot/route-manager/total-distance");
+    # In v0.0.2 the income of a route was calculated by:
+    #     flownTimeInMinutes * 250
+    # In a test route that lasted about 55 minutes
+    # the total income was then about:
+    #     55 * 250 = 13750
+    # This test route was about 293 nm.
+    # Total income per mile is then about:
+    #     13750 / 293 = 46.9283
+    return total_distance * 46.9283;
 };
 
 Company.estimatedIncome = func {
